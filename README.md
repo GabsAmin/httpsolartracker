@@ -7,16 +7,6 @@
     <style>
         /* Your CSS styles here */
     </style>
-</head>
-<body>
-    <h1>Servo Motor Control</h1>
-    <label for="angleInput">Set Servo Angle:</label>
-    <input type="range" id="angleInput" min="0" max="180" value="90" step="1">
-    <br>
-    <span id="angleValue">Current Angle: 90°</span>
-    <br>
-    <button onclick="setServoAngle()">Set Angle</button>
-
     <script>
         function setServoAngle() {
             var angleInput = document.getElementById('angleInput');
@@ -32,5 +22,14 @@
             document.getElementById('angleValue').textContent = 'Current Angle: ' + angleValue + '°';
         }
     </script>
+</head>
+<body>
+    <h1>Servo Motor Control</h1>
+    <label for="angleInput">Set Servo Angle:</label>
+    <input type="range" id="angleInput" min="0" max="180" value="90" step="1">
+    <br>
+    <span id="angleValue">Current Angle: 90°</span>
+    <br>
+    <button onclick="setServoAngle()">Set Angle</button>
 </body>
 </html>
