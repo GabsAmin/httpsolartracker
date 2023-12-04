@@ -5,39 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servo Control</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            margin: 20px;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        #angleInput {
-            width: 80%;
-            margin-bottom: 10px;
-        }
-
-        #angleValue {
-            font-size: 18px;
-            font-weight: bold;
-            color: #009688;
-        }
-
-        button {
-            padding: 10px;
-            font-size: 16px;
-            background-color: #009688;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #00796b;
-        }
+        /* Your CSS styles here */
     </style>
 </head>
 <body>
@@ -56,7 +24,7 @@
 
             // Send HTTP request to Electric Imp agent
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', https://agent.electricimp.com/r-6c8q35TBwQ, true);
+            xhr.open('POST', 'https://agent.electricimp.com/r-6c8q35TBwQ', true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xhr.send('angle=' + angleValue);
 
