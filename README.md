@@ -56,7 +56,7 @@
 
             // Send HTTP request to Electric Imp agent
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', https://agent.electricimp.com/owbGe7iPDCBz, true);
+            xhr.open('POST', https://agent.electricimp.com/r-6c8q35TBwQ, true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xhr.send('angle=' + angleValue);
 
