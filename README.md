@@ -14,7 +14,7 @@
 
     <script>
         function sendCommand(angle) {
-            fetch('/controlServo?angle=' + angle)
+            fetch('https://gabsamin.github.io/httpsolartracker/' + angle)
                 .then(response => {
                     if (response.ok) {
                         console.log('Command sent successfully');
