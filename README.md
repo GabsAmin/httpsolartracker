@@ -4,41 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servo Control</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            margin: 20px;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        #angleInput {
-            width: 80%;
-            margin-bottom: 10px;
-        }
-
-        #angleValue {
-            font-size: 18px;
-            font-weight: bold;
-            color: #009688;
-        }
-
-        button {
-            padding: 10px;
-            font-size: 16px;
-            background-color: #009688;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #00796b;
-        }
-    </style>
+    <!-- Include your JavaScript file here -->
+    <script src="path/to/your/script.js"></script>
 </head>
 <body>
     <h1>Servo Motor Control</h1>
@@ -47,22 +14,23 @@
     <br>
     <span id="angleValue">Current Angle: 90°</span>
     <br>
+    <!-- Button with the correct onclick attribute -->
     <button onclick="setServoAngle()">Set Angle</button>
-
-    <script>
-        function setServoAngle() {
-            var angleInput = document.getElementById('angleInput');
-            var angleValue = angleInput.value;
-
-            // Send HTTP request to Electric Imp agent
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', https://agent.electricimp.com/r-6c8q35TBwQ, true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.send('angle=' + angleValue);
-
-            // Update displayed angle value
-            document.getElementById('angleValue').textContent = 'Current Angle: ' + angleValue + '°';
-        }
-    </script>
 </body>
 </html>
+
+
+// Function to set servo angle
+function setServoAngle() {
+    var angleInput = document.getElementById('angleInput');
+    var angleValue = angleInput.value;
+
+    // Send HTTP request to Electric Imp agent
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://agent.electricimp.com/YOUR_UNIQUE_AGENT_ID', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send('angle=' + angleValue);
+
+    // Update displayed angle value
+    document.getElementById('angleValue').textContent = 'Current Angle: ' + angleValue + '°';
+}
