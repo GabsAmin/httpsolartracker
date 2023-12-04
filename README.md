@@ -1,36 +1,30 @@
+<!-- HTML code for the web interface -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Motor Control</title>
-    <meta http-equiv="Permissions-Policy" content="accelerometer=(), camera=(), geolocation=(); encrypted-media=()">
-    <style>
-        /* Your CSS styles go here */
-    </style>
+    <title>Servo Control</title>
 </head>
 <body>
-    <h1>Motor Control</h1>
-    <label for="speedInput">Set Motor Speed:</label>
-    <input type="range" id="speedInput" min="0" max="100" value="50" step="1">
-    <br>
-    <span id="speedValue">Current Speed: 50%</span>
-    <br>
-    <button onclick="setMotorSpeed()">Set Speed</button>
+    <h1>Servo Control</h1>
+    <button onclick="sendCommand(0)">Move to 0 degrees</button>
+    <button onclick="sendCommand(90)">Move to 90 degrees</button>
+    <button onclick="sendCommand(180)">Move to 180 degrees</button>
 
     <script>
-        function setMotorSpeed() {
-            var speedInput = document.getElementById('speedInput');
-            var speedValue = speedInput.value;
-
-            // Send HTTP request to Electric Imp agent
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'https://agent.electricimp.com/YOUR_UNIQUE_AGENT_ID', true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.send('speed=' + speedValue);
-
-            // Update displayed speed value
-            document.getElementById('speedValue').textContent = 'Current Speed: ' + speedValue + '%';
+        function sendCommand(angle) {
+            fetch('/controlServo?angle=' + angle)
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Command sent successfully');
+                    } else {
+                        console.error('Failed to send command');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
         }
     </script>
 </body>
